@@ -6,13 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import static Shapes.ShapeFactory.Shapes;
 
 public class ShapesPanel extends JPanel implements ItemListener {
-
-    private static final String REC_STR = "Rectangle";
-    private static final String ROUND_REC_STR = "Rounded Rectangle";
-    private static final String OVAL_STR = "Oval";
-    private static final String LINE_STR = "Line";
 
     private ShapeFactory factory;
 
@@ -22,7 +18,7 @@ public class ShapesPanel extends JPanel implements ItemListener {
         setLayout(new GridLayout(0, 1));
         JRadioButton radioButton;
         //make the radio button stack vertical
-        for(ShapeFactory.Shapes shape : ShapeFactory.Shapes.values()){
+        for(Shapes shape : Shapes.values()){
             radioButton = new JRadioButton(shape.toString(),true);
             radioButton.addItemListener(this);
             options.add(radioButton);
@@ -33,21 +29,16 @@ public class ShapesPanel extends JPanel implements ItemListener {
     @Override
     public void itemStateChanged(ItemEvent e) {
         if(e.getStateChange() == ItemEvent.SELECTED && e.getItem() != null) {
-            String test = ((JRadioButton) e.getItem()).getText();
-            switch (test){
-                case REC_STR:
-                    factory.setSelectedShape(ShapeFactory.Shapes.RECTANGLE);
-                    break;
-                case ROUND_REC_STR:
-                    factory.setSelectedShape(ShapeFactory.Shapes.ROUNDED_RECTANGLE);
-                    break;
-                case OVAL_STR:
-                    factory.setSelectedShape(ShapeFactory.Shapes.OVAL);
-                    break;
-                case LINE_STR:
-                    factory.setSelectedShape(ShapeFactory.Shapes.LINE);
-                    break;
-            }
+            String buttonText = ((JRadioButton) e.getItem()).getText();
+            //determine which of the shapes should be enabled, and update the factory as needed
+            if(buttonText.equals(Shapes.RECTANGLE))
+                factory.setSelectedShape(ShapeFactory.Shapes.RECTANGLE);
+            else if(buttonText.equals(Shapes.ROUNDED_RECTANGLE))
+                factory.setSelectedShape(ShapeFactory.Shapes.ROUNDED_RECTANGLE);
+            else if(buttonText.equals(Shapes.OVAL))
+                factory.setSelectedShape(ShapeFactory.Shapes.OVAL);
+            else if(buttonText.equals(Shapes.LINE))
+                factory.setSelectedShape(ShapeFactory.Shapes.LINE);
         }
     }
 }
