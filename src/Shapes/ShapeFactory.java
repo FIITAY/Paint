@@ -24,7 +24,7 @@ public class ShapeFactory {
         //put default values inside the attributes
         selectedShape = Shapes.RECTANGLE;
         makeFilled = true;
-        roundness = 0;
+        roundness = 20;
         color = Color.BLACK;
     }
 
@@ -48,5 +48,29 @@ public class ShapeFactory {
         }
         //if the shape that is picked not valid
         return null;
+    }
+
+    /**
+     * get the selected color
+     * @return the current color that will be given to new shapes
+     */
+    public Color getColor() {
+        return color;
+    }
+
+    /**
+     * sets the color that will be for new shapes
+     * @param color the color to set
+     */
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    /**
+     * set the shape that will be drawn
+     * @param shape the shape to draw next
+     */
+    public void setSelectedShape(Shapes shape){
+        selectedShape = shape;
     }
 }

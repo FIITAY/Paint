@@ -7,11 +7,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class DrawingPane extends JPanel {
+public class DrawingPanel extends JPanel {
     private ShapeStack stack;
     private MyShape hand;
 
-    public DrawingPane(ShapeFactory factory) {
+    public DrawingPanel(ShapeFactory factory) {
         super();
         //make the stack for saving shapes
         stack = new ShapeStack();
