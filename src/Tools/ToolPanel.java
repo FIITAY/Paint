@@ -20,14 +20,7 @@ public class ToolPanel extends JPanel implements ItemListener {
 
     public ToolPanel(ShapeFactory factory){
         this.factory = factory;
-        color = new JButton("Change color");
-        color.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Color newColor = JColorChooser.showDialog(null, "choose shape color", factory.getColor());
-                factory.setColor(newColor);
-            }
-        });
+        color = new ColorButton(factory);
         add(color);
 
         ButtonGroup tools = new ButtonGroup();
