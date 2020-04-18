@@ -8,9 +8,21 @@ import java.awt.*;
  */
 public class ShapeFactory {
     /**
-     * the shapes that the factory supports
+     * the shapes that the factory supports, and representing strings for them
      */
-    public enum Shapes {OVAL, RECTANGLE, ROUNDED_RECTANGLE, LINE}
+    public enum Shapes {OVAL("Oval"), RECTANGLE("Rectangle"),
+        ROUNDED_RECTANGLE("Rounded Rectangle"), LINE("Line");
+        private String representingString;
+
+        Shapes(String name){
+            representingString = name;
+        }
+
+        @Override
+        public String toString() {
+            return representingString;
+        }
+    }
 
     private Shapes selectedShape;
     private boolean makeFilled;
