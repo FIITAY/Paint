@@ -15,6 +15,16 @@ public abstract class MyShape {
 
     public abstract void draw(Graphics g);
 
+    /**
+     * getter for the origin to be able to make new shapes that start from the same point
+     * @return copy of origin
+     */
+    public Point getOrigin() {
+        return new Point(origin);
+    }
 
+    public Color getColor() {
+        return color;
+    }
 
 }
