@@ -15,6 +15,7 @@ public class ShapeFactory {
     private Shapes selectedShape;
     private boolean makeFilled;
     private int roundness;
+    private Color color;
 
     /**
      * makes shape factory with default settings
@@ -24,16 +25,16 @@ public class ShapeFactory {
         selectedShape = Shapes.RECTANGLE;
         makeFilled = true;
         roundness = 0;
+        color = Color.BLACK;
     }
 
     /**
      * makes a new shape base of the settings of the factory and the parameters
      * @param origin the origin point of the shape
      * @param target the end point of the shape
-     * @param color the color of the shape
      * @return the new shape object
      */
-    public MyShape getShape(Point origin, Point target, Color color){
+    public MyShape getShape(Point origin, Point target){
         // check which shape is currently selected
         switch (selectedShape){
             case RECTANGLE: //make new rectangle
