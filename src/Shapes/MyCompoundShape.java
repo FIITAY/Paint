@@ -2,9 +2,21 @@ package Shapes;
 
 import java.awt.*;
 
+/**
+ * represent shapes that have area
+ * @author Itay Finci
+ */
 public abstract class MyCompoundShape extends MyShape {
+
     private boolean filled;
 
+    /**
+     * makes new compound shape
+     * @param origin the origin of the shape
+     * @param target the end point of the shape
+     * @param color the color of the shape
+     * @param filled if the shape is filled or outlined
+     */
     public MyCompoundShape(Point origin, Point target, Color color, boolean filled) {
         super(origin,target,color);
         this.filled = filled;
@@ -25,10 +37,16 @@ public abstract class MyCompoundShape extends MyShape {
         return new Point(x,y);
     }
 
+    /**
+     * @return the abs value of the width of the shape
+     */
     protected int calculateWidth() {
         return Math.abs(target.x - origin.x);
     }
 
+    /**
+     * @return the abs value of the height of the shape
+     */
     protected int calculateHeight() {
         return Math.abs(target.y - origin.y);
     }
