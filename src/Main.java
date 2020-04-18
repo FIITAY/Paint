@@ -12,16 +12,7 @@ public class Main extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        MyShape shape = new MyLine(new Point(0,0), new Point(30,20), Color.BLACK);
-        shape.draw(g);
-        shape = new MyRectangle(new Point(30,20), new Point(0,30), Color.BLUE, true);
-        shape.draw(g);
-        shape = new MyRectangle(new Point(100,100), new Point(120,130), Color.CYAN, false);
-        shape.draw(g);
-        shape = new MyOval(new Point(25,40), new Point(60,90), Color.RED, false);
-        shape.draw(g);
-        shape = new MyOval(new Point(120,130), new Point(150,190), Color.ORANGE, true);
-        shape.draw(g);
+        (new MyRoundedRectangle(new Point(10,10), new Point(100,100), Color.RED, true, 60)).draw(g);
     }
 
     public static void main(String[] args) {
