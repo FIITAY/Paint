@@ -2,6 +2,7 @@ package Tools;
 
 import Shapes.ShapeFactory;
 
+import javax.management.remote.JMXServerErrorException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,18 +12,25 @@ import java.awt.event.ItemListener;
 
 public class ToolPanel extends JPanel implements ItemListener {
     private ShapeFactory factory;
-    private JButton color;
+    private ColorButton color;
 
     private static final String REC_STR = "Rectangle";
     private static final String ROUND_REC_STR = "Rounded Rectangle";
     private static final String OVAL_STR = "Oval";
     private static final String LINE_STR = "Line";
+    private static final int BORDER = 5;
 
     public ToolPanel(ShapeFactory factory){
+        //set the panel border
+        setBorder(BorderFactory.createEmptyBorder(BORDER, BORDER, BORDER, BORDER));
+        setLayout(new BoxLayout(this,
+                BoxLayout.LINE_AXIS));
         this.factory = factory;
-        color = new ColorButton(factory);
-        add(color);
-
+        //make the color chooser
+        colorChooser();
+        add(Box.createHorizontalStrut(5));
+        add(new JSeparator(JSeparator.VERTICAL));
+        add(Box.createHorizontalStrut(5));
         ButtonGroup tools = new ButtonGroup();
         JPanel radioPanel = new JPanel(new GridLayout(0, 1));
         JRadioButton jrb = new JRadioButton(REC_STR,true);
@@ -43,6 +51,15 @@ public class ToolPanel extends JPanel implements ItemListener {
         radioPanel.add(jrb);
 
         add(radioPanel);
+
+    }
+
+    /**
+     * makes a button that allow the user to choose drawing color
+     */
+    private void colorChooser() {
+        color = new ColorButton(factory);
+        add(color, BorderLayout.EAST);
     }
 
     @Override
