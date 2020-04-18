@@ -11,13 +11,21 @@ import static Shapes.ShapeFactory.Shapes;
 public class ShapesPanel extends JPanel implements ItemListener {
 
     private ShapeFactory factory;
+    private ButtonGroup options;
 
     public ShapesPanel(ShapeFactory factory){
         this.factory = factory;
-        ButtonGroup options = new ButtonGroup();
-        setLayout(new GridLayout(0, 1));
-        JRadioButton radioButton;
+        options = new ButtonGroup();
         //make the radio button stack vertical
+        setLayout(new GridLayout(0, 1));
+        makeRadioButtons();
+    }
+
+    /**
+     * make radio button for each shape
+     */
+    private void makeRadioButtons(){
+        JRadioButton radioButton;
         for(Shapes shape : Shapes.values()){
             radioButton = new JRadioButton(shape.toString());
             radioButton.addItemListener(this);

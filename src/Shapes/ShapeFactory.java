@@ -93,4 +93,20 @@ public class ShapeFactory {
     public Shapes getSelectedShape(){
         return selectedShape;
     }
+
+    /**
+     * get if the shape will be filled or not
+     * @return true if the next shape will be filled
+     */
+    public boolean isFilled() {
+        return makeFilled;
+    }
+
+    /**
+     * set if the next shape should be filled
+     * @param filled true if you want the next shape to be filled
+     */
+    public void setFilled(boolean filled) {
+        this.makeFilled = filled;
+    }
 }

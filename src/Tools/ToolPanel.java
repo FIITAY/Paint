@@ -9,6 +9,7 @@ public class ToolPanel extends JPanel {
     private ShapeFactory factory;
     private ColorButton color;
     private ShapesPanel shapesPanel;
+    private SettingPanel settingPanel;
 
     private static final int BORDER = 5;
 
@@ -19,18 +20,18 @@ public class ToolPanel extends JPanel {
                 BoxLayout.LINE_AXIS));
         this.factory = factory;
         //make the color chooser
-        colorChooser();
+        addColorChooser();
         //add Separator between the color chooser and the radio button area
         addSeparator();
-
         addShapesPanel();
-
+        addSeparator();
+        addSettingsPanel();
     }
 
     /**
      * makes a button that allow the user to choose drawing color
      */
-    private void colorChooser() {
+    private void addColorChooser() {
         color = new ColorButton(factory);
         add(color);
     }
@@ -44,9 +45,20 @@ public class ToolPanel extends JPanel {
         add(Box.createHorizontalStrut(5));
     }
 
+    /**
+     * add the panel that allows to change what shape is drawn
+     */
     private void addShapesPanel(){
         shapesPanel = new ShapesPanel(factory);
         add(shapesPanel);
+    }
+
+    /**
+     * add the panel that allows you to change extra settings
+     */
+    private void addSettingsPanel() {
+        settingPanel = new SettingPanel(factory);
+        add(settingPanel);
     }
 
 
