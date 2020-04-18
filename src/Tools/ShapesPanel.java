@@ -19,10 +19,14 @@ public class ShapesPanel extends JPanel implements ItemListener {
         JRadioButton radioButton;
         //make the radio button stack vertical
         for(Shapes shape : Shapes.values()){
-            radioButton = new JRadioButton(shape.toString(),true);
+            radioButton = new JRadioButton(shape.toString());
             radioButton.addItemListener(this);
             options.add(radioButton);
             add(radioButton);
+            //if this button is the one who is the default in the factory, set it selected
+            if(factory.getSelectedShape().equals(shape)){
+                radioButton.setSelected(true);
+            }
         }
     }
 
@@ -31,13 +35,13 @@ public class ShapesPanel extends JPanel implements ItemListener {
         if(e.getStateChange() == ItemEvent.SELECTED && e.getItem() != null) {
             String buttonText = ((JRadioButton) e.getItem()).getText();
             //determine which of the shapes should be enabled, and update the factory as needed
-            if(buttonText.equals(Shapes.RECTANGLE))
+            if(buttonText.equals(Shapes.RECTANGLE.toString()))
                 factory.setSelectedShape(ShapeFactory.Shapes.RECTANGLE);
-            else if(buttonText.equals(Shapes.ROUNDED_RECTANGLE))
+            else if(buttonText.equals(Shapes.ROUNDED_RECTANGLE.toString()))
                 factory.setSelectedShape(ShapeFactory.Shapes.ROUNDED_RECTANGLE);
-            else if(buttonText.equals(Shapes.OVAL))
+            else if(buttonText.equals(Shapes.OVAL.toString()))
                 factory.setSelectedShape(ShapeFactory.Shapes.OVAL);
-            else if(buttonText.equals(Shapes.LINE))
+            else if(buttonText.equals(Shapes.LINE.toString()))
                 factory.setSelectedShape(ShapeFactory.Shapes.LINE);
         }
     }

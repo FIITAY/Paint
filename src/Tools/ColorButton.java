@@ -13,12 +13,14 @@ public class ColorButton extends JButton implements ActionListener {
 
     private final static int SIZE = 45;
     private final static int Y_OFFSET = 5;
+    private JColorChooser colorChooser;
 
     public ColorButton(ShapeFactory factory) {
         super();
         this.factory = factory;
         addActionListener(this);
         setProperties();
+        colorChooser = new JColorChooser();
     }
 
     /**
@@ -42,7 +44,7 @@ public class ColorButton extends JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         //get new color from the user
-        Color newColor = JColorChooser.showDialog(null, "choose shape color", factory.getColor());
+        Color newColor = colorChooser.showDialog(null, "choose shape color", factory.getColor());
         //update the factory to make new shapes with this color only if color was chosen
         if(newColor != null) {
             factory.setColor(newColor);

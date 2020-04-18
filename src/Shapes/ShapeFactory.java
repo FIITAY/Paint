@@ -85,4 +85,12 @@ public class ShapeFactory {
     public void setSelectedShape(Shapes shape){
         selectedShape = shape;
     }
+
+    /**
+     * get the shape that will be made if getShape is called
+     * @return a Shape enum var
+     */
+    public Shapes getSelectedShape(){
+        return selectedShape;
+    }
 }
