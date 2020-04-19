@@ -10,13 +10,11 @@ import java.awt.event.ItemListener;
 
 public class SettingPanel extends JPanel implements ItemListener {
 
-    private ShapeFactory factory;
     private JCheckBox filled;
 
-    public SettingPanel(ShapeFactory factory){
-        this.factory = factory;
+    public SettingPanel(){
         //make check box that determine if the shape will be drawn filled or not
-        filled = new JCheckBox("Fill Shapes", factory.isFilled());
+        filled = new JCheckBox("Fill Shapes", ShapeFactory.isFilled());
         filled.addItemListener(this);
         add(filled);
     }
@@ -24,9 +22,9 @@ public class SettingPanel extends JPanel implements ItemListener {
     @Override
     public void itemStateChanged(ItemEvent e) {
         if(e.getStateChange() == ItemEvent.SELECTED) {
-            factory.setFilled(true);
+            ShapeFactory.setFilled(true);
         } else {
-            factory.setFilled(false);
+            ShapeFactory.setFilled(false);
         }
     }
 }

@@ -24,21 +24,10 @@ public class ShapeFactory {
         }
     }
 
-    private Shapes selectedShape;
-    private boolean makeFilled;
-    private int roundness;
-    private Color color;
-
-    /**
-     * makes shape factory with default settings
-     */
-    public ShapeFactory() {
-        //put default values inside the attributes
-        selectedShape = Shapes.RECTANGLE;
-        makeFilled = true;
-        roundness = 20;
-        color = Color.BLACK;
-    }
+    private static Shapes selectedShape = Shapes.RECTANGLE;
+    private static boolean makeFilled = true;
+    private static int roundness = 20;
+    private static Color color = Color.BLACK;
 
     /**
      * makes a new shape base of the settings of the factory and the parameters
@@ -46,7 +35,7 @@ public class ShapeFactory {
      * @param target the end point of the shape
      * @return the new shape object
      */
-    public MyShape getShape(Point origin, Point target){
+    public static MyShape getShape(Point origin, Point target){
         // check which shape is currently selected
         switch (selectedShape){
             case RECTANGLE: //make new rectangle
@@ -66,23 +55,23 @@ public class ShapeFactory {
      * get the selected color
      * @return the current color that will be given to new shapes
      */
-    public Color getColor() {
+    public static Color getColor() {
         return color;
     }
 
     /**
      * sets the color that will be for new shapes
-     * @param color the color to set
+     * @param c the color to set
      */
-    public void setColor(Color color) {
-        this.color = color;
+    public static void setColor(Color c) {
+        color = c;
     }
 
     /**
      * set the shape that will be drawn
      * @param shape the shape to draw next
      */
-    public void setSelectedShape(Shapes shape){
+    public static void setSelectedShape(Shapes shape){
         selectedShape = shape;
     }
 
@@ -90,7 +79,7 @@ public class ShapeFactory {
      * get the shape that will be made if getShape is called
      * @return a Shape enum var
      */
-    public Shapes getSelectedShape(){
+    public static Shapes getSelectedShape(){
         return selectedShape;
     }
 
@@ -98,7 +87,7 @@ public class ShapeFactory {
      * get if the shape will be filled or not
      * @return true if the next shape will be filled
      */
-    public boolean isFilled() {
+    public static boolean isFilled() {
         return makeFilled;
     }
 
@@ -106,7 +95,7 @@ public class ShapeFactory {
      * set if the next shape should be filled
      * @param filled true if you want the next shape to be filled
      */
-    public void setFilled(boolean filled) {
-        this.makeFilled = filled;
+    public static void setFilled(boolean filled) {
+        makeFilled = filled;
     }
 }
