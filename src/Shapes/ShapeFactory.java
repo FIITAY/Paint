@@ -98,4 +98,22 @@ public class ShapeFactory {
     public static void setFilled(boolean filled) {
         makeFilled = filled;
     }
+
+    /**
+     * get the round % of new Rounded rectangle
+     * @return the % of each line that turns to arc
+     */
+    public static int getRoundness() {
+        return roundness;
+    }
+
+    /**
+     * set how much of each line will turn to arch
+     * @param roundness a integer between 0 to 100 that represent the % of the length that turns to arc
+     */
+    public static void setRoundness(int roundness) {
+        //only if the presentage is legal
+        if(roundness >= 0 && roundness <= 100)
+            ShapeFactory.roundness = roundness;
+    }
 }

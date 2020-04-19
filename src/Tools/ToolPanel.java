@@ -59,5 +59,4 @@ public class ToolPanel extends JPanel {
         add(settingPanel);
     }
 
-
 }

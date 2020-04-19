@@ -5,18 +5,24 @@ import Shapes.ShapeFactory;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 public class SettingPanel extends JPanel implements ItemListener {
 
     private JCheckBox filled;
+    private RoundnessPanel roundnessSettings;
 
     public SettingPanel(){
+        //set the panel layout to be stack on top of each other
+        setLayout(new GridLayout(0, 1));
         //make check box that determine if the shape will be drawn filled or not
         filled = new JCheckBox("Fill Shapes", ShapeFactory.isFilled());
         filled.addItemListener(this);
         add(filled);
+        roundnessSettings = new RoundnessPanel();
+        add(roundnessSettings);
     }
 
     @Override
