@@ -6,7 +6,7 @@ import java.awt.*;
  * a rounded rectangle that draws rectangle width rounded corners
  * @author Itay Finci
  */
-public class MyRoundedRectangle extends MyCompoundShape {
+public class MyRoundedRectangle extends MyBoundedShape {
 
     int roundnessPercentage;
 

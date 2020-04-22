@@ -6,7 +6,7 @@ import java.awt.*;
  * makes a oval and draws it
  * @author Itay Finci
  */
-public class MyOval extends MyCompoundShape{
+public class MyOval extends MyBoundedShape {
     /**
      * makes a new oval
      * @param origin the origin point of the oval

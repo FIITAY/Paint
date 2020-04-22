@@ -6,7 +6,7 @@ import java.awt.*;
  * represent shapes that have area
  * @author Itay Finci
  */
-public abstract class MyCompoundShape extends MyShape {
+public abstract class MyBoundedShape extends MyShape {
 
     private boolean filled;
 
@@ -17,7 +17,7 @@ public abstract class MyCompoundShape extends MyShape {
      * @param color the color of the shape
      * @param filled if the shape is filled or outlined
      */
-    public MyCompoundShape(Point origin, Point target, Color color, boolean filled) {
+    public MyBoundedShape(Point origin, Point target, Color color, boolean filled) {
         super(origin,target,color);
         this.filled = filled;
     }

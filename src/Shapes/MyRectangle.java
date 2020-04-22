@@ -6,7 +6,7 @@ import java.awt.*;
  * a rectangle shape class that knows how to draw the rectangle
  * @author Itay Finci
  */
-public class MyRectangle extends MyCompoundShape {
+public class MyRectangle extends MyBoundedShape {
 
     /**
      * makes new rectangle
