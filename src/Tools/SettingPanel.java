@@ -3,12 +3,14 @@ package Tools;
 import Shapes.ShapeFactory;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+/**
+ * allows the user to change settings regarding the shape drawing
+ * @author Itay Finci
+ */
 public class SettingPanel extends JPanel implements ItemListener {
 
     private JCheckBox filled;
@@ -27,6 +29,7 @@ public class SettingPanel extends JPanel implements ItemListener {
 
     @Override
     public void itemStateChanged(ItemEvent e) {
+        //update the factory to have the right fill boolean
         if(e.getStateChange() == ItemEvent.SELECTED) {
             ShapeFactory.setFilled(true);
         } else {

@@ -1,11 +1,13 @@
 package Tools;
 
 import Painting.StackController;
-import Shapes.ShapeFactory;
 
 import javax.swing.*;
-import java.awt.*;
 
+/**
+ * makes a panel that inclued all of the panels that control the program
+ * @author Itay Finci
+ */
 public class ToolPanel extends JPanel {
     private ColorButton color;
     private ShapesPanel shapesPanel;

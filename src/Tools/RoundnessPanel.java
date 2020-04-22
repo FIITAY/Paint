@@ -7,6 +7,10 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+/**
+ * a panel that controls how round the roundedRectangle is
+ * @author Itay Finci
+ */
 public class RoundnessPanel extends JPanel {
 
     private JLabel label;
@@ -15,18 +19,25 @@ public class RoundnessPanel extends JPanel {
 
     public RoundnessPanel() {
         super();
+        //make sure the layout is stuck to the left
         setLayout(new FlowLayout(FlowLayout.LEFT));
+        //makes the labels that the user use to understand
         label = new JLabel("Rectangle Roundness:");
         percents = new JLabel("%");
         makeFormattedTextField();
+        //add the componments to the panel
         add(label);
         add(textField);
         add(percents);
     }
 
+    /**
+     * makes new text field that only allows you to enter numbers character (0,1,2,3,4,5,6,7,8,9)
+     * and makes sure that the number inside is between 0 to 100.
+     */
     private void makeFormattedTextField(){
         textField = new JTextField(""+ShapeFactory.getRoundness(), 3);
-        //add listener that happens after each type
+        //add listener that happens after each type and make the field accept only numbers between 0 to 100
         textField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -84,12 +95,18 @@ public class RoundnessPanel extends JPanel {
         //if the value is more then 100, then cap it to 100
         if(afterUpdateVal > 100) {
             afterUpdateVal = 100;
+            //dont print the sent char, print empty char
             e.setKeyChar(Character.MIN_VALUE);
+            //sets the new value in the text
             textField.setText("" + afterUpdateVal);
         }
         return afterUpdateVal;
     }
 
+    /**
+     * update the value that is in the factory
+     * @param value the new value
+     */
     private void updateShapeFactory(int value) {
         ShapeFactory.setRoundness(value);
     }

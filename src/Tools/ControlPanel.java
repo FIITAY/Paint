@@ -5,6 +5,10 @@ import Painting.StackController;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * a panel that have buttons that control the program
+ * @author Itay Finci
+ */
 public class ControlPanel extends JPanel {
     private StackController stackController;
 
@@ -38,6 +42,9 @@ public class ControlPanel extends JPanel {
         add(bUndo);
     }
 
+    /**
+     * makes button that allow to clear the screen
+     */
     private void addClearButton(){
         bClear = new JButton(CLEAR_STR);
         //the action listener clear the stack after the button is pressed
@@ -46,6 +53,9 @@ public class ControlPanel extends JPanel {
         add(bClear);
     }
 
+    /**
+     * makes a button that exits the program completely
+     */
     private void addExitButton(){
         bExit = new JButton(EXIT_STR);
         //add action listener that after pressing the button exits the program without error.

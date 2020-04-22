@@ -7,6 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * a panel that allows you to draw on it with your mouse
+ * @author Itay Finci
+ */
 public class DrawingPanel extends JPanel {
     private ShapeStack stack;
     private MyShape hand;
@@ -76,6 +80,9 @@ public class DrawingPanel extends JPanel {
         }
     }
 
+    /**
+     * @return object that can sends commands to the shape stack
+     */
     public StackController getStackController() {
         return stackController;
     }

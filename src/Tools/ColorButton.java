@@ -7,7 +7,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
+/**
+ * a button that shows what color is chosed and allows the user to choose another color
+ * @author Itay Finci
+ */
 public class ColorButton extends JButton implements ActionListener {
 
     private final static int SIZE = 45;
@@ -25,9 +28,7 @@ public class ColorButton extends JButton implements ActionListener {
      * set the properties of the button to show which color is choosed at all time
      */
     private void setProperties(){
-        setBackground(ShapeFactory.getColor());//import java.awt.Color;
-        setForeground(Color.WHITE);
-        setFocusPainted(false);
+        setBackground(ShapeFactory.getColor());
         setBorderPainted(false);
         setOpaque(true);
     }

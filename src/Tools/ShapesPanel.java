@@ -8,6 +8,10 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import static Shapes.ShapeFactory.Shapes;
 
+/**
+ * a panel that allows the user to choose what shape is beeing drawn
+ * @author Itay Finci
+ */
 public class ShapesPanel extends JPanel implements ItemListener {
 
     private ButtonGroup options;
@@ -24,10 +28,15 @@ public class ShapesPanel extends JPanel implements ItemListener {
      */
     private void makeRadioButtons(){
         JRadioButton radioButton;
+        //add radio button for each of the shapes that the ShapeFactory supports
         for(Shapes shape : Shapes.values()){
+            //make new radio button with the correct string
             radioButton = new JRadioButton(shape.toString());
+            //add listiner for change in the button state
             radioButton.addItemListener(this);
+            //add the button to the button group
             options.add(radioButton);
+            //add the button to the panel
             add(radioButton);
             //if this button is the one who is the default in the factory, set it selected
             if(ShapeFactory.getSelectedShape().equals(shape)){
@@ -38,7 +47,9 @@ public class ShapesPanel extends JPanel implements ItemListener {
 
     @Override
     public void itemStateChanged(ItemEvent e) {
+        //check if the item is changed to be selected and is not null (in the initialization can get null item)
         if(e.getStateChange() == ItemEvent.SELECTED && e.getItem() != null) {
+            //get the string that is written to the user
             String buttonText = ((JRadioButton) e.getItem()).getText();
             //determine which of the shapes should be enabled, and update the factory as needed
             if(buttonText.equals(Shapes.RECTANGLE.toString()))

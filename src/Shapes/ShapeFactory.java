@@ -112,7 +112,7 @@ public class ShapeFactory {
      * @param roundness a integer between 0 to 100 that represent the % of the length that turns to arc
      */
     public static void setRoundness(int roundness) {
-        //only if the presentage is legal
+        //only if the percentage is legal
         if(roundness >= 0 && roundness <= 100)
             ShapeFactory.roundness = roundness;
     }

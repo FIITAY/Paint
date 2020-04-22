@@ -2,6 +2,10 @@ package Shapes;
 
 import java.awt.*;
 
+/**
+ * represents line that can be drawn
+ * @author Itay Finci
+ */
 public class MyLine extends MyShape {
 
     /**
