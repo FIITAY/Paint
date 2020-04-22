@@ -20,8 +20,9 @@ public class Main{
         JFrame drawingFrame = new JFrame("Draw on me");
         drawingFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         drawingFrame.setSize(1000, 1000);
-        drawingFrame.add(new DrawingPanel(), BorderLayout.CENTER);
-        drawingFrame.add(new ToolPanel(), BorderLayout.SOUTH);
+        DrawingPanel drawingPanel = new DrawingPanel();
+        drawingFrame.add(drawingPanel, BorderLayout.CENTER);
+        drawingFrame.add(new ToolPanel(drawingPanel.getStackController()), BorderLayout.SOUTH);
         drawingFrame.setVisible(true);
     }
 }

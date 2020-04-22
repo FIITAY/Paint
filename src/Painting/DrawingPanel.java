@@ -10,11 +10,14 @@ import java.awt.event.*;
 public class DrawingPanel extends JPanel {
     private ShapeStack stack;
     private MyShape hand;
+    private StackController stackController;
 
     public DrawingPanel() {
         super();
         //make the stack for saving shapes
         stack = new ShapeStack();
+        //make new StackController to control the drawing panel stack
+        stackController = new StackController(stack, this);
         //the hand is clear, init the event listeners
         hand = null;
         addListeners();
@@ -29,17 +32,7 @@ public class DrawingPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                //if the hand is empty make new shape, else end the shape drawing and store it in the stack
-                if(hand == null) {
-                    //make new shape from the mouse point to the mouse point
-                    hand = ShapeFactory.getShape(e.getPoint(), e.getPoint());
-                } else{
-                    //put the shape in the stack and reset the hand
-                    stack.insert(hand);
-                    hand = null;
-                }
-                //repaint the screen to show the update
-                repaint();
+                startAndStopDrawing(e);
             }
         });
         //add listener for mouse move that will happen each time the mouse moved
@@ -47,15 +40,44 @@ public class DrawingPanel extends JPanel {
             @Override
             public void mouseMoved(MouseEvent e) {
                 super.mouseMoved(e);
-                //if there is shape in hand when the mouse moved update it
-                if(hand != null) {
-                    //make a new shape with the same origin as the old, and the mouse point as target
-                    hand = ShapeFactory.getShape(hand.getOrigin(), e.getPoint());
-                    //repaint the screen to show the update
-                    repaint();
-                }
+                drawingUpdate(e);
             }
         });
+    }
+
+    /**
+     * if the mouse is pressed check if there is need to start or stop drawing the data.
+     * @param e the mouse event with the mouse point
+     */
+    private void startAndStopDrawing(MouseEvent e){
+        //if the hand is empty make new shape, else end the shape drawing and store it in the stack
+        if(hand == null) {
+            //make new shape from the mouse point to the mouse point
+            hand = ShapeFactory.getShape(e.getPoint(), e.getPoint());
+        } else{
+            //put the shape in the stack and reset the hand
+            stackController.insert(hand);
+            hand = null;
+        }
+    }
+
+    /**
+     * if the program is in the middle of drawing and there is mouse event then
+     * update the shape in the hand to the new data
+     * @param e the mouse event with the mouse point
+     */
+    private void drawingUpdate(MouseEvent e){
+        //if there is shape in hand when the mouse moved update it
+        if(hand != null) {
+            //make a new shape with the same origin as the old, and the mouse point as target
+            hand = ShapeFactory.getShape(hand.getOrigin(), e.getPoint());
+            //repaint the screen to show the update
+            repaint();
+        }
+    }
+
+    public StackController getStackController() {
+        return stackController;
     }
 
     @Override

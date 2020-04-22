@@ -1,5 +1,6 @@
 package Tools;
 
+import Painting.StackController;
 import Shapes.ShapeFactory;
 
 import javax.swing.*;
@@ -9,21 +10,30 @@ public class ToolPanel extends JPanel {
     private ColorButton color;
     private ShapesPanel shapesPanel;
     private SettingPanel settingPanel;
+    private ControlPanel controlPanel;
 
     private static final int BORDER = 5;
 
-    public ToolPanel(){
+    public ToolPanel(StackController stackController){
         //set the panel border and layout
         setBorder(BorderFactory.createEmptyBorder(BORDER, BORDER, BORDER, BORDER));
         setLayout(new BoxLayout(this,
                 BoxLayout.LINE_AXIS));
-        //make the color chooser
+        addPanels(stackController);
+    }
+
+    /**
+     * makes all of the panels and add them to this panel
+     * @param stackController object that controls the shape stack
+     */
+    private void addPanels(StackController stackController){
         addColorChooser();
-        //add Separator between the color chooser and the radio button area
         addSeparator();
         addShapesPanel();
         addSeparator();
         addSettingsPanel();
+        addSeparator();
+        addControlPanel(stackController);
     }
 
     /**
@@ -57,6 +67,15 @@ public class ToolPanel extends JPanel {
     private void addSettingsPanel() {
         settingPanel = new SettingPanel();
         add(settingPanel);
+    }
+
+    /**
+     * add the panel that allows to do undo,clear,exit and more
+     * @param stackController the object  that can send commands to the shape stack
+     */
+    private void addControlPanel(StackController stackController) {
+        controlPanel = new ControlPanel(stackController);
+        add(controlPanel);
     }
 
 }

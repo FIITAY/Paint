@@ -32,9 +32,13 @@ public class ShapeStack {
      * @return the shape that was removed
      */
     public MyShape pop() {
-        MyShape out = stack.get(stack.size()-1);
-        stack.remove(stack.size()-1);
-        return out;
+        //only pop if there are items in the stack
+        if(stack.size() >= 1){
+            MyShape out = stack.get(stack.size()-1);
+            stack.remove(stack.size()-1);
+            return out;
+        }
+        return null;
     }
 
     /**
