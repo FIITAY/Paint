@@ -1,5 +1,6 @@
 package Painting;
 
+import KeyBoard.KeyBoardManager;
 import Shapes.MyShape;
 import Shapes.ShapeFactory;
 
@@ -47,6 +48,8 @@ public class DrawingPanel extends JPanel {
                 drawingUpdate(e);
             }
         });
+
+        //addKeyListener(new KeyBoardManager(getStackController()));
     }
 
     /**

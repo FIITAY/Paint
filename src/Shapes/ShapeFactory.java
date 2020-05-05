@@ -1,5 +1,6 @@
 package Shapes;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -13,6 +14,7 @@ public class ShapeFactory {
     public enum Shapes {OVAL("Oval"), RECTANGLE("Rectangle"),
         ROUNDED_RECTANGLE("Rounded Rectangle"), LINE("Line");
         private String representingString;
+        private JRadioButton representingButton;
 
         Shapes(String name){
             representingString = name;
@@ -21,6 +23,14 @@ public class ShapeFactory {
         @Override
         public String toString() {
             return representingString;
+        }
+
+        public void setRepresentingButton(JRadioButton button){
+            representingButton = button;
+        }
+
+        public void setSelected(){
+            representingButton.setSelected(true);
         }
     }
 

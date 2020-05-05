@@ -36,6 +36,7 @@ public class ShapesPanel extends JPanel implements ItemListener {
             radioButton.addItemListener(this);
             //add the button to the button group
             options.add(radioButton);
+            shape.setRepresentingButton(radioButton);
             //add the button to the panel
             add(radioButton);
             //if this button is the one who is the default in the factory, set it selected

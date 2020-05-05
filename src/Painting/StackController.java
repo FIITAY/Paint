@@ -61,5 +61,4 @@ public class StackController {
         //repaint to show changes
         effectedPanel.repaint();
     }
-
 }

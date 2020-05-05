@@ -1,11 +1,11 @@
+import KeyBoard.KeyBoardManager;
 import Painting.DrawingPanel;
-import Shapes.*;
-import Tools.RoundnessPanel;
+import Painting.StackController;
 import Tools.ToolPanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseWheelListener;
+import java.awt.event.KeyEvent;
 
 public class Main{
 
@@ -15,7 +15,17 @@ public class Main{
         drawingFrame.setSize(1000, 1000);
         DrawingPanel drawingPanel = new DrawingPanel();
         drawingFrame.add(drawingPanel, BorderLayout.CENTER);
-        drawingFrame.add(new ToolPanel(drawingPanel.getStackController()), BorderLayout.SOUTH);
+        StackController sc = drawingPanel.getStackController();
+        ToolPanel tp = new ToolPanel(sc);
+        drawingFrame.add(tp, BorderLayout.SOUTH);
+        shortcuts(sc);
         drawingFrame.setVisible(true);
+    }
+
+    private static void shortcuts(StackController sc){
+        KeyboardFocusManager keyManager;
+
+        keyManager=KeyboardFocusManager.getCurrentKeyboardFocusManager();
+        keyManager.addKeyEventDispatcher(new KeyBoardManager(sc));
     }
 }
