@@ -74,7 +74,7 @@ public class DrawingPanel extends JPanel {
         //if there is shape in hand when the mouse moved update it
         if(hand != null) {
             //make a new shape with the same origin as the old, and the mouse point as target
-            hand = ShapeFactory.getShape(hand.getOrigin(), e.getPoint());
+            hand = ShapeFactory.changeShape(hand, e.getPoint());
             //repaint the screen to show the update
             repaint();
         }

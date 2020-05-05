@@ -1,8 +1,11 @@
 package Tools;
 
 import Painting.StackController;
+import Shapes.ShapeFactory;
 
 import javax.swing.*;
+import javax.swing.colorchooser.AbstractColorChooserPanel;
+import java.awt.*;
 
 /**
  * makes a panel that inclued all of the panels that control the program
@@ -42,9 +45,37 @@ public class ToolPanel extends JPanel {
      * makes a button that allow the user to choose drawing color
      */
     private void addColorChooser() {
-        color = new ColorButton();
-        add(color);
+        JColorChooser chooser = new JColorChooser();
+        for (AbstractColorChooserPanel accp : chooser.getChooserPanels()) {
+            if(!accp.getDisplayName().equals("Swatches")) {
+                chooser.removeChooserPanel(accp);
+            }
+        }
+        PreviewPane pane = new PreviewPane();
+        chooser.setPreviewPanel(pane);
+        chooser.getSelectionModel().addChangeListener(e -> {
+                Color c = chooser.getColor();
+                ShapeFactory.setColor(c);
+                pane.setColor(c);
+            }
+        );
+        add(chooser);
+        //        color = new ColorButton();
+//        add(color);
     }
+
+    private class PreviewPane extends JPanel{
+        private JLabel label = new JLabel("selected color");
+        PreviewPane(){
+            super();
+            add(label);
+        }
+
+        void setColor(Color c){
+            label.setForeground(c);
+        }
+    }
+
 
     /**
      * add vertical separator between items

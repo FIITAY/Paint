@@ -3,6 +3,8 @@ package Tools;
 import Shapes.ShapeFactory;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -11,10 +13,11 @@ import java.awt.event.ItemListener;
  * allows the user to change settings regarding the shape drawing
  * @author Itay Finci
  */
-public class SettingPanel extends JPanel implements ItemListener {
+public class SettingPanel extends JPanel implements ItemListener{
 
     private JCheckBox filled;
     private RoundnessPanel roundnessSettings;
+    private ThicknessControllerPanel thickness;
 
     public SettingPanel(){
         //set the panel layout to be stack on top of each other
@@ -25,6 +28,8 @@ public class SettingPanel extends JPanel implements ItemListener {
         add(filled);
         roundnessSettings = new RoundnessPanel();
         add(roundnessSettings);
+        thickness = new ThicknessControllerPanel();
+        add(thickness);
     }
 
     @Override

@@ -28,6 +28,7 @@ public class ShapeFactory {
     private static boolean makeFilled = true;
     private static int roundness = 20;
     private static Color color = Color.BLACK;
+    private static int thickness = 1;
 
     /**
      * makes a new shape base of the settings of the factory and the parameters
@@ -39,16 +40,21 @@ public class ShapeFactory {
         // check which shape is currently selected
         switch (selectedShape){
             case RECTANGLE: //make new rectangle
-                return new MyRectangle(origin, target, color, makeFilled);
+                return new MyRectangle(origin, target, color, makeFilled, thickness);
             case ROUNDED_RECTANGLE: //make new rounded rectangle
-                return new MyRoundedRectangle(origin, target, color, makeFilled, roundness);
+                return new MyRoundedRectangle(origin, target, color, makeFilled, roundness, thickness);
             case OVAL: //make new oval
-                return new MyOval(origin, target, color, makeFilled);
+                return new MyOval(origin, target, color, makeFilled, thickness);
             case LINE: //make new line
-                return new MyLine(origin, target, color);
+                return new MyLine(origin, target, color, thickness);
         }
         //if the shape that is picked not valid
         return null;
+    }
+
+    public static MyShape changeShape(MyShape shape, Point target){
+        shape.target = new Point(target);
+        return shape;
     }
 
     /**
@@ -115,5 +121,13 @@ public class ShapeFactory {
         //only if the percentage is legal
         if(roundness >= 0 && roundness <= 100)
             ShapeFactory.roundness = roundness;
+    }
+
+    public static int getThickness() {
+        return thickness;
+    }
+
+    public static void setThickness(int thickness) {
+        ShapeFactory.thickness = thickness;
     }
 }

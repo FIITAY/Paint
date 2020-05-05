@@ -5,6 +5,7 @@ import Tools.ToolPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseWheelListener;
 
 public class Main{
 
