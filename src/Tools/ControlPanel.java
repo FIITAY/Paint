@@ -14,11 +14,13 @@ public class ControlPanel extends JPanel {
 
     //Texts
     private static final String UNDO_STR = "undo last drawing";
+    private static final String REDO_STR = "Redo";
     private static final String CLEAR_STR = "clear screen";
     private static final String EXIT_STR = "exit the program";
 
     //buttons
     private JButton bUndo;
+    private JButton bRedo;
     private JButton bClear;
     private JButton bExit;
 
@@ -27,6 +29,7 @@ public class ControlPanel extends JPanel {
         //make all of the buttons stack on top of each other
         setLayout(new GridLayout(0,1));
         addUndoButton();
+        addRedoButton();
         addClearButton();
         addExitButton();
     }
@@ -40,6 +43,12 @@ public class ControlPanel extends JPanel {
         bUndo.addActionListener(e -> stackController.undo());
         //add the button
         add(bUndo);
+    }
+
+    private void addRedoButton(){
+        bRedo = new JButton(REDO_STR);
+        bRedo.addActionListener(e -> stackController.redo());
+        add(bRedo);
     }
 
     /**

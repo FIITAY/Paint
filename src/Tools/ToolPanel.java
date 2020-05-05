@@ -51,29 +51,15 @@ public class ToolPanel extends JPanel {
                 chooser.removeChooserPanel(accp);
             }
         }
-        PreviewPane pane = new PreviewPane();
-        chooser.setPreviewPanel(pane);
+        chooser.setPreviewPanel(new JPanel());
         chooser.getSelectionModel().addChangeListener(e -> {
                 Color c = chooser.getColor();
                 ShapeFactory.setColor(c);
-                pane.setColor(c);
             }
         );
         add(chooser);
-        //        color = new ColorButton();
+//        color = new ColorButton();
 //        add(color);
-    }
-
-    private class PreviewPane extends JPanel{
-        private JLabel label = new JLabel("selected color");
-        PreviewPane(){
-            super();
-            add(label);
-        }
-
-        void setColor(Color c){
-            label.setForeground(c);
-        }
     }
 
 

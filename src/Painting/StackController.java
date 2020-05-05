@@ -2,6 +2,8 @@ package Painting;
 
 import Shapes.MyShape;
 
+import java.util.Stack;
+
 /**
  * send commands to the shape stack and update the drawing panel after the command have been done.
  * @author Itay Finci
@@ -10,10 +12,13 @@ public class StackController {
     private ShapeStack controlled;
     private DrawingPanel effectedPanel;
 
+    private Stack<MyShape> redoStack;
+
     public StackController(ShapeStack stack, DrawingPanel effectedPanel){
         //save the controlled object without encapsulation to make sure the used object are being controlled
         controlled = stack;
         this.effectedPanel = effectedPanel;
+        redoStack = new Stack<>();
     }
 
     /**
@@ -21,7 +26,14 @@ public class StackController {
      */
     public void undo(){
         //remove the last added shape
-        controlled.pop();
+        redoStack.push(controlled.pop());
+        finishChange();
+    }
+
+    public void redo(){
+        if(!redoStack.empty()){
+            controlled.insert(redoStack.pop());
+        }
         finishChange();
     }
 
@@ -40,6 +52,7 @@ public class StackController {
      */
     public void insert(MyShape shape) {
         controlled.insert(shape);
+        redoStack.clear();
         finishChange();
     }
 
