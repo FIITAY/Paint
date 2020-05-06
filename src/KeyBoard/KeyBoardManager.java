@@ -33,7 +33,10 @@ public class KeyBoardManager implements KeyEventDispatcher {
                 new ShortCut(KeyEvent.VK_R, NONE, sa::changeRectangle),
                 new ShortCut(KeyEvent.VK_R, SHIFT, sa::changeRoundedRectangle),
                 new ShortCut(KeyEvent.VK_O, NONE, sa::changeCircle),
-                new ShortCut(KeyEvent.VK_L, NONE, sa::changeLine)
+                new ShortCut(KeyEvent.VK_L, NONE, sa::changeLine),
+                new ShortCut(KeyEvent.VK_F, NONE, sa::changeFill),
+                new ShortCut(KeyEvent.VK_CLOSE_BRACKET, NONE, sa::increaseLineThickness),
+                new ShortCut(KeyEvent.VK_OPEN_BRACKET, NONE, sa::decreaseLineThickness)
         };
     }
 

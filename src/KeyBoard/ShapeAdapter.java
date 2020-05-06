@@ -2,36 +2,44 @@ package KeyBoard;
 
 import Shapes.ShapeFactory;
 
-import javax.swing.*;
 import Shapes.ShapeFactory.Shapes;
 
 public class ShapeAdapter {
 
+    public static final int SLIDER_STEP = 5;
+
     public Object changeRectangle(Object p){
-        Shapes shape = Shapes.RECTANGLE;
-        ShapeFactory.setSelectedShape(shape);
-        shape.setSelected();
+        Shapes.RECTANGLE.setSelected();
         return null;
     }
 
     public Object changeRoundedRectangle(Object p){
-        Shapes shape = Shapes.ROUNDED_RECTANGLE;
-        ShapeFactory.setSelectedShape(shape);
-        shape.setSelected();
+        Shapes.ROUNDED_RECTANGLE.setSelected();
         return null;
     }
 
     public Object changeCircle(Object p){
-        Shapes shape = Shapes.OVAL;
-        ShapeFactory.setSelectedShape(shape);
-        shape.setSelected();
+        Shapes.OVAL.setSelected();
         return null;
     }
 
     public Object changeLine(Object p){
-        Shapes shape = Shapes.LINE;
-        ShapeFactory.setSelectedShape(shape);
-        shape.setSelected();
+        Shapes.LINE.setSelected();
+        return null;
+    }
+
+    public Object changeFill(Object o) {
+        ShapeFactory.setCheckFilled(!ShapeFactory.isFilled());
+        return null;
+    }
+
+    public Object increaseLineThickness(Object o){
+        ShapeFactory.increaseLine(SLIDER_STEP);
+        return null;
+    }
+
+    public Object decreaseLineThickness(Object o){
+        ShapeFactory.increaseLine(-SLIDER_STEP);
         return null;
     }
 }

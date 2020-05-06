@@ -28,6 +28,7 @@ public class ThicknessControllerPanel extends JPanel implements ChangeListener {
         thickness.setMinorTickSpacing(5);
         thickness.setMajorTickSpacing(10);
         add(thickness);
+        ShapeFactory.setSlider(thickness);
     }
 
     @Override

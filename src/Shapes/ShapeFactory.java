@@ -39,6 +39,8 @@ public class ShapeFactory {
     private static int roundness = 20;
     private static Color color = Color.BLACK;
     private static int thickness = 1;
+    private static JCheckBox filledBox;
+    private static JSlider slider;
 
     /**
      * makes a new shape base of the settings of the factory and the parameters
@@ -115,6 +117,14 @@ public class ShapeFactory {
         makeFilled = filled;
     }
 
+    public static void setCheckFilled(boolean filled) {
+        filledBox.setSelected(filled);
+    }
+
+    public static void setFilledBox(JCheckBox box){
+        filledBox = box;
+    }
+
     /**
      * get the round % of new Rounded rectangle
      * @return the % of each line that turns to arc
@@ -139,5 +149,13 @@ public class ShapeFactory {
 
     public static void setThickness(int thickness) {
         ShapeFactory.thickness = thickness;
+    }
+
+    public static void increaseLine(int step) {
+        slider.setValue(slider.getValue() + step);
+    }
+
+    public static void setSlider(JSlider s){
+        slider = s;
     }
 }

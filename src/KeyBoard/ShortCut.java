@@ -1,7 +1,5 @@
 package KeyBoard;
 
-import Shapes.MyShape;
-
 import java.util.function.Function;
 
 public class ShortCut {

@@ -24,6 +24,7 @@ public class SettingPanel extends JPanel implements ItemListener{
         setLayout(new GridLayout(0, 1));
         //make check box that determine if the shape will be drawn filled or not
         filled = new JCheckBox("Fill Shapes", ShapeFactory.isFilled());
+        ShapeFactory.setFilledBox(filled);
         filled.addItemListener(this);
         add(filled);
         roundnessSettings = new RoundnessPanel();
