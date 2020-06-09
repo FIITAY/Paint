@@ -19,12 +19,22 @@ public class ShapeAdapter {
     }
 
     public Object changeCircle(Object p){
+        Shapes.CIRCLE.setSelected();
+        return null;
+    }
+
+    public Object changeOval(Object o) {
         Shapes.OVAL.setSelected();
         return null;
     }
 
     public Object changeLine(Object p){
         Shapes.LINE.setSelected();
+        return null;
+    }
+
+    public Object changeFreeDraw(Object o) {
+        Shapes.FREE_DRAW.setSelected();
         return null;
     }
 
