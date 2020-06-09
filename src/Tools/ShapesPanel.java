@@ -61,6 +61,8 @@ public class ShapesPanel extends JPanel implements ItemListener {
                 ShapeFactory.setSelectedShape(ShapeFactory.Shapes.OVAL);
             else if(buttonText.equals(Shapes.LINE.toString()))
                 ShapeFactory.setSelectedShape(ShapeFactory.Shapes.LINE);
+            else if(buttonText.equals(Shapes.CIRCLE.toString()))
+                ShapeFactory.setSelectedShape(ShapeFactory.Shapes.CIRCLE);
         }
     }
 }

@@ -11,7 +11,7 @@ public class ShapeFactory {
     /**
      * the shapes that the factory supports, and representing strings for them
      */
-    public enum Shapes {OVAL("Oval"), RECTANGLE("Rectangle"),
+    public enum Shapes {OVAL("Oval"), CIRCLE("Circle"),RECTANGLE("Rectangle"),
         ROUNDED_RECTANGLE("Rounded Rectangle"), LINE("Line");
         private String representingString;
         private JRadioButton representingButton;
@@ -57,6 +57,8 @@ public class ShapeFactory {
                 return new MyRoundedRectangle(origin, target, color, makeFilled, roundness, thickness);
             case OVAL: //make new oval
                 return new MyOval(origin, target, color, makeFilled, thickness);
+            case CIRCLE: //make new circle
+                return new MyCircle(origin,target,color,makeFilled,thickness);
             case LINE: //make new line
                 return new MyLine(origin, target, color, thickness);
         }
