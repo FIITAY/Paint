@@ -12,7 +12,7 @@ public class ShapeFactory {
      * the shapes that the factory supports, and representing strings for them
      */
     public enum Shapes {OVAL("Oval"), CIRCLE("Circle"),RECTANGLE("Rectangle"),
-        ROUNDED_RECTANGLE("Rounded Rectangle"), LINE("Line");
+        ROUNDED_RECTANGLE("Rounded Rectangle"), LINE("Line"), FREE_DRAW("Free Draw");
         private String representingString;
         private JRadioButton representingButton;
 
@@ -59,6 +59,8 @@ public class ShapeFactory {
                 return new MyOval(origin, target, color, makeFilled, thickness);
             case CIRCLE: //make new circle
                 return new MyCircle(origin,target,color,makeFilled,thickness);
+            case FREE_DRAW: //start new free draw
+                return new FreeDrawShape(origin,target,color,thickness);
             case LINE: //make new line
                 return new MyLine(origin, target, color, thickness);
         }
@@ -67,7 +69,10 @@ public class ShapeFactory {
     }
 
     public static MyShape changeShape(MyShape shape, Point target){
-        shape.target = new Point(target);
+        if(shape instanceof FreeDrawShape)
+            ((FreeDrawShape)shape).add(target);
+        else
+            shape.target = new Point(target);
         return shape;
     }
 

@@ -54,15 +54,17 @@ public class ShapesPanel extends JPanel implements ItemListener {
             String buttonText = ((JRadioButton) e.getItem()).getText();
             //determine which of the shapes should be enabled, and update the factory as needed
             if(buttonText.equals(Shapes.RECTANGLE.toString()))
-                ShapeFactory.setSelectedShape(ShapeFactory.Shapes.RECTANGLE);
+                ShapeFactory.setSelectedShape(Shapes.RECTANGLE);
             else if(buttonText.equals(Shapes.ROUNDED_RECTANGLE.toString()))
-                ShapeFactory.setSelectedShape(ShapeFactory.Shapes.ROUNDED_RECTANGLE);
+                ShapeFactory.setSelectedShape(Shapes.ROUNDED_RECTANGLE);
             else if(buttonText.equals(Shapes.OVAL.toString()))
-                ShapeFactory.setSelectedShape(ShapeFactory.Shapes.OVAL);
+                ShapeFactory.setSelectedShape(Shapes.OVAL);
             else if(buttonText.equals(Shapes.LINE.toString()))
-                ShapeFactory.setSelectedShape(ShapeFactory.Shapes.LINE);
+                ShapeFactory.setSelectedShape(Shapes.LINE);
             else if(buttonText.equals(Shapes.CIRCLE.toString()))
-                ShapeFactory.setSelectedShape(ShapeFactory.Shapes.CIRCLE);
+                ShapeFactory.setSelectedShape(Shapes.CIRCLE);
+            else if(buttonText.equals(Shapes.FREE_DRAW.toString()))
+                ShapeFactory.setSelectedShape(Shapes.FREE_DRAW);
         }
     }
 }
