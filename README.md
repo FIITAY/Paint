@@ -1,5 +1,7 @@
 # Paint program
 
+![Paint](/screenshots/sc01.png?raw=true "Paint")
+
 ## making a paint program in java
 
 ### using the Swing library
