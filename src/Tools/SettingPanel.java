@@ -31,6 +31,7 @@ public class SettingPanel extends JPanel implements ItemListener{
         add(roundnessSettings);
         thickness = new ThicknessControllerPanel();
         add(thickness);
+        add(new MouseModeSwitch());
     }
 
     @Override

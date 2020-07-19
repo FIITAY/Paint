@@ -1,6 +1,7 @@
 import KeyBoard.KeyBoardManager;
 import Painting.DrawingPanel;
 import Painting.StackController;
+import Tools.MouseModeSwitch;
 import Tools.ToolPanel;
 
 import javax.swing.*;
