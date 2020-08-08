@@ -50,4 +50,4 @@
 
 1. `[`/`]`- to decrease/increase the size of the stroke
 
-###### made for Maman 13 in advanced programming class
+###### made for Maman 13 in advanced programming class in the open university, by Itay Finci for semester 2020b. all rights reserved.
