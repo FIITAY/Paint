@@ -116,6 +116,7 @@ public class MouseController implements MouseListener, MouseMotionListener {
 
     /**
      * toggle the mode of the mouse between drag and click
+     * @return the new mouse mode
      */
     public static MouseMode toggleMode(){
         if(currentMode == MouseMode.DRAG)

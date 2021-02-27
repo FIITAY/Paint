@@ -16,6 +16,7 @@ public abstract class MyBoundedShape extends MyShape {
      * @param target the end point of the shape
      * @param color the color of the shape
      * @param filled if the shape is filled or outlined
+     * @param thickness the thickness of the object
      */
     public MyBoundedShape(Point origin, Point target, Color color, boolean filled, int thickness) {
         super(origin,target,color,thickness);
