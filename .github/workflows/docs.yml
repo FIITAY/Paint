@@ -29,8 +29,11 @@ jobs:
           java-version: 13
       # Runs a single command using the runners shell
       - name: Generate the new docks
-        run: javadoc -private -splitindex -author -d docs
-        
+        run: |
+          cd src
+          javadoc -private -splitindex -author -d ../docs *
+          cd ..
+
       - name: Update the docks in the git repo
         uses: test-room-7/action-update-file@v1
         with:

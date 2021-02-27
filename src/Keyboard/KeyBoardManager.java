@@ -1,4 +1,4 @@
-package KeyBoard;
+package Keyboard;
 
 import Painting.StackController;
 import java.awt.*;

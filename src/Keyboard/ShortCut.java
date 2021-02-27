@@ -1,4 +1,4 @@
-package KeyBoard;
+package Keyboard;
 
 import java.util.function.Function;
 

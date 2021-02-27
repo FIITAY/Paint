@@ -1,4 +1,4 @@
-import KeyBoard.KeyBoardManager;
+import Keyboard.KeyBoardManager;
 import Painting.DrawingPanel;
 import Painting.StackController;
 import Tools.MouseModeSwitch;

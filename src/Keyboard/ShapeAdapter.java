@@ -1,4 +1,4 @@
-package KeyBoard;
+package Keyboard;
 
 import Shapes.ShapeFactory;
 import Shapes.ShapeFactory.Shapes;
