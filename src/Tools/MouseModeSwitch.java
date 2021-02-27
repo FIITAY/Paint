@@ -6,6 +6,10 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * a switch to choose if you want to drag or click twice to paint
+ * @author Itay Finci
+ */
 public class MouseModeSwitch extends JToggleButton {
 
     private static final String CLICK_TEXT = "Click!";
@@ -13,6 +17,9 @@ public class MouseModeSwitch extends JToggleButton {
 
     private MouseController.MouseMode curMode;
 
+    /**
+     * create a new mouse mode switch - this is a button with changing text
+     */
     public MouseModeSwitch(){
         super(CLICK_TEXT, false);
         curMode = MouseController.getCurrentMode();
@@ -28,6 +35,9 @@ public class MouseModeSwitch extends JToggleButton {
         });
     }
 
+    /**
+     * update the displayed text
+     */
     private void updateText(){
         switch (curMode){
             case DRAG:

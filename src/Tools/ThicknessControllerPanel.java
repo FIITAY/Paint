@@ -7,6 +7,9 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 
+/**
+ * control the line thickness using a slider that updates our factory
+ */
 public class ThicknessControllerPanel extends JPanel implements ChangeListener {
 
     private static final String LABEL_STR = "Line Thickness:";
@@ -14,6 +17,9 @@ public class ThicknessControllerPanel extends JPanel implements ChangeListener {
     private JLabel label;
     private JSlider thickness;
 
+    /**
+     * create a new panel
+     */
     public ThicknessControllerPanel(){
         setLayout(new FlowLayout(FlowLayout.LEFT));
         label = new JLabel(LABEL_STR);
@@ -21,6 +27,9 @@ public class ThicknessControllerPanel extends JPanel implements ChangeListener {
         makeSlider();
     }
 
+    /**
+     * make the initial slider
+     */
     private void makeSlider(){
         thickness = new JSlider(1,50,ShapeFactory.getThickness());
         thickness.addChangeListener(this);

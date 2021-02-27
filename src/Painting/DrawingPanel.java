@@ -1,7 +1,5 @@
 package Painting;
 
-import Shapes.MyShape;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,6 +12,9 @@ public class DrawingPanel extends JPanel {
     private StackController stackController;
     private MouseController mouseController;
 
+    /**
+     * a pane that allows drawing on
+     */
     public DrawingPanel() {
         super();
         //make the stack for saving shapes

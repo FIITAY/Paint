@@ -2,6 +2,10 @@ package Shapes;
 
 import java.awt.*;
 
+/**
+ * a circle defined by two points, restricts to a valid circle!
+ * @author Itay Finci
+ */
 public class MyCircle extends MyOval{
 
     /**

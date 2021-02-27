@@ -150,18 +150,33 @@ public class ShapeFactory {
             ShapeFactory.roundness = roundness;
     }
 
+    /**
+     * @return the current defined line thickness - this will be used for the next created shape unless changed
+     */
     public static int getThickness() {
         return thickness;
     }
 
+    /**
+     * set the thickness for the next created object
+     * @param thickness the new thickness
+     */
     public static void setThickness(int thickness) {
         ShapeFactory.thickness = thickness;
     }
 
+    /**
+     * set the thickness value using the slider- in order to keep the UI updated
+     * @param step the step value to take
+     */
     public static void increaseLine(int step) {
         slider.setValue(slider.getValue() + step);
     }
 
+    /**
+     * set the UI slider in use
+     * @param s the slider
+     */
     public static void setSlider(JSlider s){
         slider = s;
     }

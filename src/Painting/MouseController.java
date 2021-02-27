@@ -22,6 +22,11 @@ public class MouseController implements MouseListener, MouseMotionListener {
 
     private static MouseMode currentMode = MouseMode.CLICK;
 
+    /**
+     * create a controller for the mouse actions
+     * @param sc the stack that the mouse controllers
+     * @param panel the drawing pane that the mouse affects
+     */
     public MouseController(StackController sc, DrawingPanel panel) {
         this.hand = null;
         this.stackController = sc;
@@ -120,6 +125,10 @@ public class MouseController implements MouseListener, MouseMotionListener {
         return currentMode;
     }
 
+    /**
+     * get the current mode the mouse is working in- click or drag
+     * @return a MouseMode
+     */
     public static MouseMode getCurrentMode(){
         return currentMode;
     }

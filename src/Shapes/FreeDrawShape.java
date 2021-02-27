@@ -3,6 +3,10 @@ package Shapes;
 import java.awt.*;
 import java.util.LinkedList;
 
+/**
+ * shape that consists of points to allow the user to drag any line he wants
+ * @author Itay Finci
+ */
 public class FreeDrawShape extends MyShape{
 
     private Point p1 ;

@@ -1,13 +1,13 @@
 package KeyBoard;
 
 import Painting.StackController;
-import Shapes.ShapeFactory;
-
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
+/**
+ * manage all supported shortcuts using a list and function pointers.
+ * @author Itay Finci
+ */
 public class KeyBoardManager implements KeyEventDispatcher {
 
     ShortCut[] shortCuts;
@@ -19,12 +19,19 @@ public class KeyBoardManager implements KeyEventDispatcher {
     private static final int SHIFT = KeyEvent.SHIFT_DOWN_MASK;
     private static final int NONE = 0;
 
+    /**
+     * make a new keyboard manager to handle shortcuts
+     * @param sc the stack controller to connect to
+     */
     public KeyBoardManager(StackController sc){
         this.sc = new StackAdapter(sc);
         this.sa = new ShapeAdapter();
         initiateShortCuts();
     }
 
+    /**
+     * initialize the shortcut list in order to have the defaults loaded
+     */
     private void initiateShortCuts(){
         shortCuts = new ShortCut[]{
                 new ShortCut(KeyEvent.VK_Z, CTRL, sc::undo),
@@ -42,6 +49,12 @@ public class KeyBoardManager implements KeyEventDispatcher {
         };
     }
 
+
+    /**
+     * handle a new key pressed event, check for a shortcut
+     * @param e the event
+     * @return true if the key combination is supported, else false to let the os handle.
+     */
     @Override
     public boolean dispatchKeyEvent(KeyEvent e) {
         if(e.getID()== KeyEvent.KEY_PRESSED){
