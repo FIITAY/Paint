@@ -50,4 +50,8 @@
 
 1. `[`/`]`- to decrease/increase the size of the stroke
 
+## documentations
+a new documentations are automatically available for each push to the master branch.  
+the docs are available to watch at: https://fiitay.github.io/Paint/
+
 ###### made for Maman 13 in advanced programming class in the open university, by Itay Finci for semester 2020b. all rights reserved.
