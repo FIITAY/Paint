@@ -27,6 +27,11 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 13
+
+      # remove old docs
+      - name: clean old docs
+        run: rm -rf docs
+
       # Runs a single command using the runners shell
       - name: Generate the new docs
         run: |
