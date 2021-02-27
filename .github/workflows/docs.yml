@@ -28,11 +28,17 @@ jobs:
         with:
           java-version: 13
       # Runs a single command using the runners shell
-      - name: Generate the new docks
+      - name: Generate the new docs
         run: |
           cd src
           javadoc -private -splitindex -author -d ../docs *
           cd ..
+          
+      - name: clean up the new docs
+        uses: cicirello/javadoc-cleanup@v1.2.0
+        with:
+          path-to-root: docs
+          base-url-path: https://fiitay.github.io/Paint/
 
       - name: Update the docks in the git repo
         uses: test-room-7/action-update-file@v1
